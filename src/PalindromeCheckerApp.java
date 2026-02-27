@@ -35,6 +35,19 @@ public class PalindromeCheckerApp {
          
     }
 
+    public static Boolean PalindromeChecker4(String str){
+        Stack<Character> st = new Stack<>();
+
+        for(int i=0;i<str.length();i++){
+            st.push(str.charAt(i));
+        }
+        int i=0;
+        while(!st.isEmpty()){
+            if(st.pop() == str.charAt(i)) return false;
+        }
+        return true;
+    }
+
     public static void main(String[] args) {
         System.out.println("Welcome to the Palindrome Checker Management System");
         System.out.println("Version: 1.0");
@@ -47,6 +60,7 @@ public class PalindromeCheckerApp {
         System.out.println(PalindromeChecker(str));
         System.out.println(PalindromeChecker2(str));
         System.out.println(PalindromeChecker3(str));
+        System.out.println(PalindromeChecker4(str));
 
         sc.close();
 
