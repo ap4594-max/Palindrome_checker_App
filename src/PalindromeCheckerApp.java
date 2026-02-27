@@ -24,6 +24,17 @@ public class PalindromeCheckerApp {
 
     }
 
+    public static Boolean PalindromeChecker3(String str){
+        char[] chars = str.toCharArray();
+
+        int end  = chars.length -1 ;
+        for(int i=0,j=end;i<chars.length;i++,j--){
+            if(chars[i] != chars[j]) return false;
+        }
+        return true;
+         
+    }
+
     public static void main(String[] args) {
         System.out.println("Welcome to the Palindrome Checker Management System");
         System.out.println("Version: 1.0");
@@ -35,6 +46,9 @@ public class PalindromeCheckerApp {
 
         System.out.println(PalindromeChecker(str));
         System.out.println(PalindromeChecker2(str));
+        System.out.println(PalindromeChecker3(str));
+
+        sc.close();
 
     }
 }
