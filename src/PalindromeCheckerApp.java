@@ -61,8 +61,22 @@ public class PalindromeCheckerApp {
             if(st.pop() != queue.remove()) return false;
         }
         return true;
+    }
 
+    public static Boolean PalindromeChecker6(String str){
+       Deque<Character> deque = new ArrayDeque<>();
 
+        for(int i=0;i<str.length();i++){
+            deque.add(str.charAt(i));
+        }
+
+        while(!deque.isEmpty()){
+            char front = deque.getFirst();
+            char last = deque.getLast();
+            if (front != last) return false;
+            
+        }
+        return true;
     }
 
     public static void main(String[] args) {
@@ -79,6 +93,7 @@ public class PalindromeCheckerApp {
         System.out.println(PalindromeChecker3(str));
         System.out.println(PalindromeChecker4(str));
         System.out.println(PalindromeChecker5(str));
+        System.out.println(PalindromeChecker6(str));
 
         sc.close();
 
