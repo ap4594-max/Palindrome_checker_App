@@ -48,6 +48,23 @@ public class PalindromeCheckerApp {
         return true;
     }
 
+    public static Boolean PalindromeChecker5(String str){
+        Queue<Character> queue = new LinkedList<>();
+        Stack<Character> st = new Stack<>();
+
+        for(int i=0;i<str.length();i++){
+            st.push(str.charAt(i));
+            queue.add(str.charAt(i));
+        }
+
+        while(!st.isEmpty()){
+            if(st.pop() != queue.remove()) return false;
+        }
+        return true;
+
+
+    }
+
     public static void main(String[] args) {
         System.out.println("Welcome to the Palindrome Checker Management System");
         System.out.println("Version: 1.0");
@@ -61,6 +78,7 @@ public class PalindromeCheckerApp {
         System.out.println(PalindromeChecker2(str));
         System.out.println(PalindromeChecker3(str));
         System.out.println(PalindromeChecker4(str));
+        System.out.println(PalindromeChecker5(str));
 
         sc.close();
 
