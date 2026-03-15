@@ -97,6 +97,19 @@ public class PalindromeCheckerApp {
         return false;
     }
 
+    public static Boolean PalindromeChecker8(String str,int start , int end){
+        if(start >= end){
+            return true;
+        }
+
+        if(str.charAt(start) != str.charAt(end)){
+            return false;
+        }
+
+        return PalindromeChecker8(str, start+1, end-1);
+
+    }
+
     public static void main(String[] args) {
         System.out.println("Welcome to the Palindrome Checker Management System");
         System.out.println("Version: 1.0");
@@ -113,6 +126,7 @@ public class PalindromeCheckerApp {
         System.out.println(PalindromeChecker5(str));
         System.out.println(PalindromeChecker6(str));
         System.out.println(PalindromeChecker7(str));
+        System.out.println(PalindromeChecker8(str, 0, str.length()-1));
         sc.close();
 
     }
