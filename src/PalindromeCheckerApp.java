@@ -1,6 +1,41 @@
 import java.util.*;
 public class PalindromeCheckerApp {
 
+    interface PalindromeStrategy{
+        boolean check(String str);
+    }
+
+    static class StackStrategy implements PalindromeStrategy{
+        public boolean check(String str){
+             Stack<Character> stack = new Stack<>();
+                for(char c : str.toCharArray()){
+                    stack.push(c);
+                }
+                for(char c : str.toCharArray()){
+                    if(stack.pop() != c){
+                        return false;
+                    }
+                }
+            return true;
+        }
+    }
+    
+
+    static class DequeStrategy implements PalindromeStrategy {
+        public boolean check(String str) {
+            Deque<Character> deque = new ArrayDeque<>();
+            for(char c : str.toCharArray()){
+                deque.add(c);
+            }
+            while(deque.size() > 1){
+                if(deque.removeFirst() != deque.removeLast()){
+                    return false;
+                }
+            }
+            return true;
+        }
+    }
+
     static class PalindromeCheckerclass {
 
         public boolean checkPalindrome(String str) {
@@ -14,6 +49,16 @@ public class PalindromeCheckerApp {
                 }
             }
             return true;
+        }
+    }
+
+    static class PalindromeService {
+        private PalindromeStrategy strategy;
+        public PalindromeService(PalindromeStrategy strategy){
+            this.strategy = strategy;
+        }
+        public boolean checkPalindrome(String str){
+            return strategy.check(str);
         }
     }
 
@@ -159,8 +204,15 @@ public class PalindromeCheckerApp {
         System.out.println(PalindromeChecker7(str));
         System.out.println(PalindromeChecker8(str, 0, str.length()-1));
         System.out.println(PalindromeChecker9(str));
+
         PalindromeCheckerclass checker = new PalindromeCheckerclass();
         checker.checkPalindrome(str);
+
+        PalindromeStrategy strategy;
+        strategy = new StackStrategy();
+        PalindromeService service = new PalindromeService(strategy);
+        boolean result = service.checkPalindrome(str);
+        System.out.println("Strategy Result: " + result);
         sc.close();
 
     }
