@@ -110,6 +110,21 @@ public class PalindromeCheckerApp {
 
     }
 
+    public static Boolean PalindromeChecker9(String str){
+
+        str = str.toLowerCase().replaceAll("\\s+","");
+        int i = 0;
+        int j = str.length() -1;
+        while(i<j){
+            if(str.charAt(i) != str.charAt(j)){
+                return false;
+            }
+            i++;
+            j--;
+        }
+        return true;
+    }
+
     public static void main(String[] args) {
         System.out.println("Welcome to the Palindrome Checker Management System");
         System.out.println("Version: 1.0");
@@ -127,6 +142,7 @@ public class PalindromeCheckerApp {
         System.out.println(PalindromeChecker6(str));
         System.out.println(PalindromeChecker7(str));
         System.out.println(PalindromeChecker8(str, 0, str.length()-1));
+        System.out.println(PalindromeChecker9(str));
         sc.close();
 
     }
