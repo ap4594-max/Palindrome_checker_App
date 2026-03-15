@@ -186,6 +186,35 @@ public class PalindromeCheckerApp {
         return true;
     }
 
+    public static void performanceTest(String str){
+
+        long start;
+        long end;
+
+        start = System.nanoTime();
+        PalindromeChecker(str);
+        end = System.nanoTime();
+        System.out.println("Two Pointer Method: " + (end - start) + " ns");
+
+
+        start = System.nanoTime();
+        PalindromeChecker5(str);
+        end = System.nanoTime();
+        System.out.println("Stack + Queue Method: " + (end - start) + " ns");
+
+
+        start = System.nanoTime();
+        PalindromeChecker6(str);
+        end = System.nanoTime();
+        System.out.println("Deque Method: " + (end - start) + " ns");
+
+
+        start = System.nanoTime();
+        PalindromeChecker8(str,0,str.length()-1);
+        end = System.nanoTime();
+        System.out.println("Recursion Method: " + (end - start) + " ns");
+    }
+
     public static void main(String[] args) {
         System.out.println("Welcome to the Palindrome Checker Management System");
         System.out.println("Version: 1.0");
@@ -213,6 +242,8 @@ public class PalindromeCheckerApp {
         PalindromeService service = new PalindromeService(strategy);
         boolean result = service.checkPalindrome(str);
         System.out.println("Strategy Result: " + result);
+
+        performanceTest(str);
         sc.close();
 
     }
