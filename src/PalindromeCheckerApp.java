@@ -78,6 +78,24 @@ public class PalindromeCheckerApp {
         }
         return true;
     }
+    public static Boolean PalindromeChecker7(String str){
+        LinkedList<Character> list = new LinkedList<>();
+
+        for(char c : str.toCharArray()){
+            list.add(c);
+        }
+
+        LinkedList<Character> reversed = new LinkedList<>();
+
+        for(char c: list){
+            reversed.addFirst(c);
+        }
+
+        if(list.equals(reversed)){
+            return true;
+        }
+        return false;
+    }
 
     public static void main(String[] args) {
         System.out.println("Welcome to the Palindrome Checker Management System");
@@ -94,7 +112,7 @@ public class PalindromeCheckerApp {
         System.out.println(PalindromeChecker4(str));
         System.out.println(PalindromeChecker5(str));
         System.out.println(PalindromeChecker6(str));
-
+        System.out.println(PalindromeChecker7(str));
         sc.close();
 
     }
