@@ -70,9 +70,9 @@ public class PalindromeCheckerApp {
             deque.add(str.charAt(i));
         }
 
-        while(!deque.isEmpty()){
-            char front = deque.getFirst();
-            char last = deque.getLast();
+        while(deque.size() > 1){
+            char front = deque.removeFirst();
+            char last = deque.removeLast();
             if (front != last) return false;
             
         }
