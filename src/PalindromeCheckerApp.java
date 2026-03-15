@@ -1,6 +1,22 @@
 import java.util.*;
 public class PalindromeCheckerApp {
 
+    static class PalindromeCheckerclass {
+
+        public boolean checkPalindrome(String str) {
+            Stack<Character> stack = new Stack<>();
+            for(char c : str.toCharArray()){
+                stack.push(c);
+            }
+            for(char c : str.toCharArray()){
+                if(stack.pop() != c){
+                    return false;
+                }
+            }
+            return true;
+        }
+    }
+
     public static Boolean PalindromeChecker(String str){
         int i = 0;
         int j = str.length()-1;
@@ -143,6 +159,8 @@ public class PalindromeCheckerApp {
         System.out.println(PalindromeChecker7(str));
         System.out.println(PalindromeChecker8(str, 0, str.length()-1));
         System.out.println(PalindromeChecker9(str));
+        PalindromeCheckerclass checker = new PalindromeCheckerclass();
+        checker.checkPalindrome(str);
         sc.close();
 
     }
