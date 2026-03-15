@@ -98,13 +98,15 @@ public class PalindromeCheckerApp {
 
     public static Boolean PalindromeChecker4(String str){
         Stack<Character> st = new Stack<>();
-
         for(int i=0;i<str.length();i++){
             st.push(str.charAt(i));
         }
-        int i=0;
+        int i = 0;
         while(!st.isEmpty()){
-            if(st.pop() == str.charAt(i)) return false;
+            if(st.pop() != str.charAt(i)){
+                return false;
+            }
+            i++;
         }
         return true;
     }
